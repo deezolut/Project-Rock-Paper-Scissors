@@ -32,17 +32,19 @@ function getHumanChoice(humanInput) {
 let humanScore = 0;
 let computerScore = 0;
 
-// Make the game last 5 rounds 
 function playGame() {
+    // Make the game last 5 rounds 
     for (let round = 1; round < 6; round++) {
         // Return one of the valid choices depending on what the human inputs
         let rawHumanInput = prompt("Type one of the following: 'rock', 'paper' or 'scissors'.");
         let humanInput;
+
+        // Convert the whole input to lowercase 
         if (rawHumanInput != undefined) {
             humanInput = rawHumanInput.toLowerCase();
 
         }
-        
+        // Makes the round NOT to progress if the human inputs something not valid
         if (humanInput != "rock" && humanInput != "paper" && humanInput != "scissors") {
             round--;
 
@@ -52,7 +54,7 @@ function playGame() {
         playRound(humanSelection, computerSelection);
         alert("Your Score: " + humanScore + "\nOpponent's Score: " + computerScore + "\nRound: " + round)
 
-        // Declare winner after a single round between human and computer
+        // A single round between human and computer
         function playRound(humanChoice, computerChoice) {
             // Make 'humanChoice' parameter case-insensitive
             if (humanChoice != undefined) {
