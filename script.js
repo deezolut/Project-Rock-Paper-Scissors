@@ -23,10 +23,17 @@ let computerScore = 0;
 
 
 
+// const buttons = document.querySelectorAll('button');
+// const para = document.querySelector('p');
+
+// buttons.forEach((button) => () {
+//     button.addEventListener
+// })
 const button = document.querySelector('#rock');
+button.addEventListener('click', playGame);
 const para = document.querySelector('p');
 
-button.addEventListener('click', (e) => {
+function playGame(e) {
     let humanChoice = e.target.id;
     let computerChoice = getComputerChoice();
     playRound();
@@ -59,8 +66,5 @@ button.addEventListener('click', (e) => {
             para.textContent = "It's a tie!";
         }
     }
-});
 
-
-
-
+}
