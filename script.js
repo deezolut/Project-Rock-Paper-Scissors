@@ -23,15 +23,14 @@ let computerScore = 0;
 
 
 
-// const buttons = document.querySelectorAll('button');
-// const para = document.querySelector('p');
-
-// buttons.forEach((button) => () {
-//     button.addEventListener
-// })
-const button = document.querySelector('#rock');
-button.addEventListener('click', playGame);
+const buttons = document.querySelectorAll('button');
 const para = document.querySelector('p');
+
+
+buttons.forEach((button) => {
+    button.addEventListener('click', playGame)
+})
+
 
 function playGame(e) {
     let humanChoice = e.target.id;
