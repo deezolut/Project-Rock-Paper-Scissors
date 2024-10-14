@@ -24,7 +24,6 @@ const buttons = document.querySelectorAll('button');
 const para = document.querySelector('#results');
 const scoreOfHuman = document.querySelector('#score-of-human');
 const scoreOfComputer = document.querySelector('#score-of-computer');
-const results = document.querySelector('#results');
 
 buttons.forEach((button) => {
     button.addEventListener('click', playGame)
@@ -70,14 +69,14 @@ function playGame(e) {
 
 
         if (humanScore == 5) {
-            results.textContent = "You are the winner!"
+            para.textContent = "You are the winner!"
             buttons.forEach((button => {
                 button.removeEventListener('click', playGame);
             }))
         };
 
         if (computerScore == 5) {
-            results.textContent = "You lost..."
+            para.textContent = "You lost..."
             buttons.forEach((button => {
                 button.removeEventListener('click', playGame);
             }))
