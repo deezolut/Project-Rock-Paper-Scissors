@@ -13,10 +13,7 @@ function getComputerChoice() {
 }
 
 
-// const buttons = document.querySelectorAll('button');
-// for (let i = 0; i < buttons.length; i++) {
-//     buttons[i].addEventListener('click', (playRound(e, computerChoice)))
-// };
+
 
 let humanScore = 0;
 let computerScore = 0;
@@ -24,8 +21,10 @@ let computerScore = 0;
 
 
 const buttons = document.querySelectorAll('button');
-const para = document.querySelector('p');
-
+const para = document.querySelector('#results');
+const scoreOfHuman = document.querySelector('#score-of-human');
+const scoreOfComputer = document.querySelector('#score-of-computer');
+const results = document.querySelector('#results');
 
 buttons.forEach((button) => {
     button.addEventListener('click', playGame)
@@ -64,6 +63,26 @@ function playGame(e) {
         else if (humanChoice == computerChoice) {
             para.textContent = "It's a tie!";
         }
+
+
+        scoreOfHuman.textContent = `Your score: ${humanScore}`
+        scoreOfComputer.textContent= `Computer's score: ${computerScore}`
+
+
+        if (humanScore == 5) {
+            results.textContent = "You are the winner!"
+            buttons.forEach((button => {
+                button.removeEventListener('click', playGame);
+            }))
+        };
+
+        if (computerScore == 5) {
+            results.textContent = "You lost..."
+            buttons.forEach((button => {
+                button.removeEventListener('click', playGame);
+            }))
+        };
     }
 
 }
+
